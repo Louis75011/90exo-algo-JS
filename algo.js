@@ -1,5 +1,5 @@
-// 100 Exercices d'algorithmique en JavaScript en vrac avec mon propre code
-// https:waytolearnx.com/category/exercice-javascript-corrige
+// // 100 Exercices d'algorithmique en JavaScript en vrac avec mon propre code
+// // https:waytolearnx.com/category/exercice-javascript-corrige
 
 // Exercice JavaScript Corrigé – Partie 1
 // Créez une fonction qui prend deux nombres comme arguments et retourne leur somme.
@@ -30,10 +30,46 @@ function increment(n) {
 console.log(increment(1));
 console.log(increment(4));
 
-// EX 4
 // Écrivez une fonction qui prend la base et la hauteur d’un triangle et retourne sa surface. Notez que la surface d’un triangle est: (base * hauteur) / 2
+function getSurface(base, hauteur) {
+   return (base * hauteur) / 2;
+}
+console.log(getSurface(8, 2));
+console.log(getSurface(7, 3));
 
-// PT1 EX9
+// Écrivez un programme JavaScript pour inverser une chaîne de caractères.
+function strReverse(str) {
+   // Coupe, inverse et rejoint le tout
+   str.split("").reverse().join("");
+}
+console.log(strReverse("WayToLearnX"));
+console.log(strReverse("Hello"));
+
+// Écrivez un programme JavaScript pour trouver le plus grand des trois entiers donnés.
+function getMax(a, b, c) {
+   let array = [a, b, c];
+   let max = null;
+   for (let i = 0; i < array.length; i++) {
+      if (max < array[i]) {
+         max = array[i];
+      }
+   }
+   return max;
+}
+console.log(getMax(5, 9, 1));
+console.log(getMax(2, 3, 10));
+
+// Créez une fonction qui prend un tableau et renvoie le premier élément. Notez que le premier élément d’un tableau commence toujours par l’index 0.
+function getFirst(tab) {
+   return tab[0];
+}
+console.log(getFirst([1, 2, 3]));
+console.log(getFirst([50, 60, 70]));
+
+// Écrivez un programme JavaScript pour récupérer l’URL d’un site Web
+console.log(window.location.href);
+// console.log(document.URL);
+
 // Écrivez un programme JavaScript pour renvoyer le reste de deux nombres. Il existe un seul opérateur en JavaScript, capable de fournir le reste d’une division. Deux nombres sont transmis comme paramètres. Le premier paramètre divisé par le deuxième paramètre.
 
 function resteDiv(a, b) {
@@ -127,6 +163,11 @@ console.log(reverseTab([1, 2, 3]));
 console.log(reverseTab([1, 1, 2, 2, 3]));
 
 // Créez une fonction qui prend un tableau et renvoie le dernier élément du tableau.
+function getLastElem(tab) {
+   return tab[tab.length - 1];
+}
+console.log(getLastElem([1, 2, 3, 4]));
+console.log(getLastElem(["Alex", "Bob", "Emily"]));
 
 // Exercice JavaScript Corrigé – Partie 3
 // Créez une fonction qui vérifier l’égalité de deux paramètres a et b. La valeur et le type de paramètres doivent être testés afin d’avoir une égalité. La fonction doit renvoyer TRUE si les paramètres sont égaux et FALSE s’ils sont différents.
@@ -144,7 +185,6 @@ console.log(checkEq(5, false));
 console.log(checkEq(5, "5"));
 
 // Créez une fonction qui renvoie TRUE si une chaîne est vide et sinon renvoie FALSE.
-
 function isEmpty(str) {
    return str ? false : true;
 }
@@ -169,7 +209,6 @@ console.log(msg("Alex"));
 console.log(msg("Emily"));
 
 // Écrivez une fonction qui renvoie la longueur d’une chaîne. Utiliser une fonction récursive.
-
 function size(str) {
    // Si la chaîne est vide renvoie 0
    if (!str) {
@@ -201,7 +240,6 @@ console.log(compareSize("123", "1"));
 console.log(compareSize("Ali", "Bob"));
 
 // Créez une fonction qui prend la hauteur et la largeur et trouve le périmètre d’un rectangle.
-
 function getPerimeter(height, width) {
    // Largeur fois hauteur par 2 pour calculer le périmètre
    return (height + width) * 2;
@@ -240,6 +278,92 @@ console.log(concatener([1, 2], [3, 4]));
 console.log(concatener([9, 8], [1, 5, 6, 7]));
 console.log(concatener([1, 1, 1], [2, 2, 2]));
 
+// Créez une fonction qui trouve l’index d’un élément donné. Si l’élément n’existe pas, retournez -1.
+function find(tab, val) {
+   for (let i = 0; i < tab.length; i++) {
+      if (tab[i] == val) return i;
+   }
+   return -1;
+}
+console.log(find([2, 7, 1], 7));
+console.log(find([6, 9, 5], 6));
+console.log(find([6, 7, 8], 9));
+
+//   Écrivez une fonction pour vérifier si un tableau contient un nombre particulier.
+function nbrExist(tab, val) {
+   for (let i = 0; i < tab.length; i++) {
+      if (tab[i] === val) {
+         return true;
+      }
+   }
+   return false;
+}
+console.log(nbrExist([6, 7, 8], 7));
+console.log(nbrExist([1, 2, 3], 5));
+console.log(nbrExist([], 0));
+
+// Créez une fonction qui prend une chaîne (un nom aléatoire). Si le dernier caractère du nom est un « s », retournez TRUE, sinon retournez FALSE.
+
+function checkS(str) {
+   /*length commence à 0, avec le moins on commence par la dernière lettre*/
+   return str[str.length - 1] === "s";
+}
+console.log(checkS("Thomas"));
+console.log(checkS("Ali"));
+console.log(checkS("Alex"));
+console.log(checkS("Alvis"));
+
+// Créez une fonction qui renvoie TRUE si une chaîne contient des espaces. Sinon renvoie FALSE.
+function containSpaces(str) {
+   return str.includes(" ");
+}
+console.log(containSpaces("Thomas"));
+console.log(containSpaces("Hello World!"));
+console.log(containSpaces(" "));
+console.log(containSpaces(""));
+
+// Créez une fonction qui prend un objet comme argument et renvoie une chaîne qui représente une personne. Les attributs de la personne devront être extraits des trois propriétés de l’objet...
+function formatPrs(personne) {
+   return `Il s'appelle ${personne.nom}, il a ${personne.age} ans et il habite à ${personne.adresse}`;
+}
+console.log(formatPrs({nom: "Thomas", age: "25", adresse: "Paris"}));
+console.log(formatPrs({nom: "Joseph", age: "22", adresse: "Nantes"}));
+
+// Créez une fonction qui prend une chaîne représentant l’humeur et renvoie une phrase au format suivant: « Aujourd’hui, je me sens {feeling} ». Cependant, si aucun argument n’est passé, retournez « Aujourd’hui, je me sens neutre ».
+function myFeeling(feeling) {
+   if (feeling === undefined) {
+      console.log("Aujourd'hui, je me sens neutre");
+   }
+   return `${feeling}`;
+}
+console.log(myFeeling("heureux"));
+console.log(myFeeling("triste"));
+console.log(myFeeling());
+
+// Créez une fonction qui renvoie le nombre d’arguments avec lesquels elle a été appelée.
+function nbrArgs() {
+   /* l'attribut vide contient "arguments" à la base*/
+   return arguments.length;
+}
+console.log(nbrArgs());
+console.log(nbrArgs({}));
+console.log(nbrArgs("A"));
+console.log(nbrArgs("A", "B"));
+
+// Créez une fonction qui prend un mot et détermine s’il est pluriel ou singulier. Un mot pluriel est celui qui se termine par « s ». S’il est pluriel renvoyer TRUE sinon FALSE.
+function check(str) {
+   /* Récupérer la chaîne, puis la dernière lettre pour identifier le s*/
+   if (str[str.length - 1] === "s") {
+      return true;
+   }
+   return false;
+   /*return str[str.length - 1] == 's';*/
+}
+console.log(check("enfants"));
+console.log(check("filles"));
+console.log(check("fille"));
+console.log(check("enfant"));
+
 // Exercice JavaScript Corrigé – Partie 5
 // Écrivez une fonction qui prend un entier et: Si le nombre est un multiple de 3, retournez « Hello ». Si le nombre est un multiple de 5, retournez « World ». Si le nombre est un multiple de 3 et de 5, retournez « Hello World ».
 
@@ -251,6 +375,76 @@ function checkNbr(n) {
 console.log(checkNbr(3));
 console.log(checkNbr(5));
 console.log(checkNbr(15));
+
+// Écrivez l’expression régulière qui révèle le message caché. Vous devez supprimer tous les nombres pour révéler le message. Utilisez la classe de caractères \D dans votre expression.
+let str = "242Welcome23 45to344 254324WayToLearnX!";
+let patt = /\D */g;
+let result = str.match(patt);
+console.log(result.join(""));
+
+// Créez une fonction qui prend un tableau avec des nombres et retourne un tableau avec les éléments multipliés par deux.
+function tabX2(tab) {
+   return tab.map((i) => i * 2);
+}
+console.log(tabX2([1, 2, 3]));
+console.log(tabX2([5, 10, 20]));
+console.log(tabX2([100, 200, 300]));
+
+// Créez une fonction qui prend trois nombres comme arguments et renvoie TRUE si c’est un triangle, sinon renvoie FALSE.
+function isTriangle(a, b, c) {
+   /*Théorème d’inégalité, qui stipule que la somme des longueurs de deux côtés d’un triangle est toujours supérieure au troisième côté*/
+   return a + b > c && b + c > a && c + a > b;
+}
+console.log(isTriangle(2, 3, 4));
+console.log(isTriangle(2, 4, 5));
+console.log(isTriangle(8, 2, 1));
+
+// Créez une fonction qui renvoie la valeur ASCII du caractère transmis.
+function charToAscii(c) {
+   /*La méthode charCodeAt() renvoie un entier représentant l’unité de code UTF-16 à l’index donné.*/
+   return c.charCodeAt(0);
+}
+console.log(charToAscii("A"));
+console.log(charToAscii("a"));
+console.log(charToAscii("+"));
+
+// Avec une fraction sous forme d’une chaîne, indiquez si elle est supérieure ou non à 1 lorsqu’elle est évaluée.
+function FracSup1(f) {
+   /*fonction native d'évalutation*/
+   return eval(f) > 1;
+}
+console.log(FracSup1("2/2"));
+console.log(FracSup1("8/2"));
+console.log(FracSup1("1/2"));
+
+// Créez une fonction qui prend un tableau et renvoie la somme de tous les nombres du tableau.
+function sum(tab) {
+   let sum = 0;
+   for (let i = 0; i < tab.length; i++) {
+      sum += tab[i];
+   }
+   return sum;
+}
+console.log(sum([1, 1, 1]));
+console.log(sum([1, 2, 3]));
+console.log(sum([-2, 2, 1]));
+
+// Créez une fonction qui prend un tableau de mots et le transforme en un tableau de longueur de chaque mot.
+function countStr(tab) {
+   return tab.map((el) => el.length);
+}
+console.log(countStr(["A", "B", "C"]));
+console.log(countStr(["Welcome", "To", "WayToLearnX"]));
+console.log(countStr(["Bob", "Ali", "Thomas"]));
+
+// Créez une fonction qui renvoie le nombre de syllabes dans une chaîne.
+function nbrOfSyllables(str) {
+   // Ne fonctionne qu'avec des mots en 2 lettres par syllabe
+   return str.length / 2;
+}
+console.log(nbrOfSyllables("SOSOSOSO"));
+console.log(nbrOfSyllables("HAHAHAHAHA"));
+console.log(nbrOfSyllables("RIRIRIRIRIRIRIRIRIRI"));
 
 // Exercice JavaScript Corrigé – Partie 6
 // Créez une fonction qui prend une chaîne et renvoie TRUE ou FALSE, selon que les caractères sont en ordre ou non.
@@ -270,9 +464,11 @@ console.log(checkOrder("zyx"));
 console.log(checkOrder("123"));
 console.log(checkOrder("aabbcc"));
 
-// Exercice JavaScript Corrigé – Partie 7
-// Créez une fonction qui trouve tous les nombres pairs de 1 au nombre donné.
+// // Créez une fonction qui ajoute une sous-chaîne à la fin de chaque chaîne du tableau.
 
-// Exercice JavaScript Corrigé – Partie 8
-// Exercice JavaScript Corrigé – Partie 9
-// Exercice JavaScript Corrigé – Partie 10
+// // Exercice JavaScript Corrigé – Partie 7
+// // Créez une fonction qui trouve tous les nombres pairs de 1 au nombre donné.
+
+// // Exercice JavaScript Corrigé – Partie 8
+// // Exercice JavaScript Corrigé – Partie 9
+// // Exercice JavaScript Corrigé – Partie 10
