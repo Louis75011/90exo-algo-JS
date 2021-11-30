@@ -1,0 +1,6 @@
+{
+    // Fichier settings propre au dossier actuel
+    "workbench.sideBar.location": "right", // La barre latérale des fichiers se place à droite
+    // "workbench.colorTheme": "Ayu Dark",
+    // "liveServer.settings.port": 5501
+}
