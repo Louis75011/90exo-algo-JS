@@ -1,0 +1,49 @@
+Procédure copier_chaine(pointeur de chaine, str2 : pointeur de chaine)
+Début
+    contenu(str2) <- contenu(str1)
+    si contenu(str1) != '/0'
+        alors
+        copier_chaine(str1+1, str2+1)
+        finsi
+Fin
+
+Procédure nature_chiffre()
+Début
+    ecrire "Entre un chiffre:"
+    lire A
+
+    Si (A === 0) Alors
+        ecrire "Chiffre nul"
+    Sinon
+        Si (A > O) Alors
+            ecrire "Chiffre positif"
+        Sinon
+            ecrire "Chiffre négatif" // équivalent A < 0
+        Finsi
+    Finsi
+Fin
+
+Procédure cafe_y/n()
+Début
+    ecrire "Prenez-vous un café oui ou non ?"
+    lire rep
+    Tant que (rep <> "o" ET rep <> "n") Faire
+        ecrire "Incompréhensible"
+        lire rep
+
+    SI rep = "o" ALORS
+        ecrire "Voici votre café"
+    Finsi
+    SI rep = "n" ALORS
+    ecrire "C'est entedu"
+Fin
+
+Procédure selection_tableau()
+Début
+    ecrire "Entrez notes"
+    notes = [10, 14, 15]
+    élèves = ["Marc", "Jean", "Luc"]
+    ecrire élèves[1]
+Fin
+
+// SI age >= 18 ET age <= ALORS ecrire "carte étudiante okay"
