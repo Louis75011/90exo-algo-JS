@@ -465,10 +465,86 @@ console.log(checkOrder("123"));
 console.log(checkOrder("aabbcc"));
 
 // // Créez une fonction qui ajoute une sous-chaîne à la fin de chaque chaîne du tableau.
+function addEnd(tableau, fin) {
+   return tableau.map((debutMot) => `${debutMot}${fin}`);
+}
+console.log(addEnd(["accept", "achet", "adapt"], "able"));
+console.log(addEnd(["aim", "act", "ard"], "ant"));
+
+// Créez une fonction qui vérifie si l’argument est un entier ou une chaîne. Renvoie « int » s’il s’agit d’un entier et « string » s’il s’agit d’une chaîne.
+function checkIntOrStr(x) {
+   if (typeof x === "string") {
+      return "string";
+   } else if (typeof x === "number") {
+      return "int";
+   } else {
+      return "Hello World";
+   }
+   // let y = typeof x === "string" ? "string" : typeof x === "number" ? "int" : "Hello World";
+   // return y
+}
+console.log(checkIntOrStr("WayToLearnX"));
+console.log(checkIntOrStr(1));
+console.log(checkIntOrStr("250"));
+
+// Créez une fonction qui prend une phrase et renvoie le nombre de mots.
+function count(str) {
+   return str.split(" ").length;
+}
+console.log(count("Welcome to WayToLearnX"));
+console.log(count("Hello World"));
+console.log(count("I am going to my school"));
+
+// Créez une fonction récursive qui renvoie le total de tous les nombres impairs jusqu’à n(inclus). n sera donné comme un nombre impair.
+function sommeImpair(n) {
+   if (n === 1) return 1;
+   return n + sommeImpair(n - 2);
+}
+console.log(sommeImpair(3));
+console.log(sommeImpair(7));
+console.log(sommeImpair(59));
+
+// Créez une fonction qui renvoie TRUE si la chaîne passée en paramètre ne contient que des lettres majuscules ou minuscules.
+function isSameCase(str) {
+   return str === str.toUpperCase() || str === str.toLowerCase();
+}
+console.log(isSameCase("WayToLearnX"));
+console.log(isSameCase("waytolearnx"));
+console.log(isSameCase("WAYTOLEARNX"));
+
+// Créez une fonction pour multiplier toutes les valeurs d’un tableau par la longueur du tableau donné.
+function mulByLen(tab) {
+   return tab.map((element) => element * tab.length);
+}
+console.log(mulByLen([1, 1, 1]));
+console.log(mulByLen([1, 2, 3]));
+console.log(mulByLen([0, 0, 0, 0, 2]));
+
+// Créez une fonction pour supprimer toutes les valeurs nulles d’un tableau.
+function deleteNull(tab) {
+   const result = tab.filter((withoutNull) => withoutNull !== null);
+   return result;
+}
+console.log(deleteNull(["Alex", null, "Emily", "Bob"]));
+console.log(deleteNull([0, 1, null, 2, null, 3]));
+console.log(deleteNull([null, null, null]));
+
+// (...) Vous devez implémenter une fonction qui renvoie TRUE si c’est une année bissextile, ou FALSE si ce n’est pas le cas.
+function bissextile(year) {
+   return year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0);
+}
 
 // // Exercice JavaScript Corrigé – Partie 7
 // // Créez une fonction qui trouve tous les nombres pairs de 1 au nombre donné.
 
+
 // // Exercice JavaScript Corrigé – Partie 8
 // // Exercice JavaScript Corrigé – Partie 9
 // // Exercice JavaScript Corrigé – Partie 10
+
+let a = 10;
+let b = 5;
+function multi(a, b) {
+   return a * b;
+}
+multi(a, b);
