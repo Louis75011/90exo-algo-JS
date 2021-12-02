@@ -536,15 +536,130 @@ function bissextile(year) {
 
 // // Exercice JavaScript Corrigé – Partie 7
 // // Créez une fonction qui trouve tous les nombres pairs de 1 au nombre donné.
+function nbrPaire(n) {
+   let array = [];
+   for (let i = 1; i <= n; i++) {
+      if (i % 2 === 0) {
+         array.push(i);
+      }
+   }
+   return array;
+}
+console.log(nbrPaire(6));
+console.log(nbrPaire(4));
+console.log(nbrPaire(2));
 
+// Écrivez une fonction qui renvoie TRUE si tous les caractères d’une chaîne sont identiques, sinon renvoie FALSE.
+function isSame(str) {
+   for (let i = 0; i < str.length - 1; i++) {
+      if (str[i] !== str[i + 1]) {
+         return false;
+      }
+   }
+   return true;
+}
+console.log(isSame("bbbbbb"));
+console.log(isSame("abababab"));
+console.log(isSame("111111"));
+
+// Vous avez un tableau de nombre, transformez ce tableau en miroir.
+function miroir(tab) {
+   let newA = [];
+   for (let i = 0; i < tab.length; i++) {
+      newA.push(tab[i]);
+   }
+   for (let i = tab.length - 2; i >= 0; i--) {
+      newA.push(tab[i]);
+   }
+   return newA;
+}
+console.log(miroir([1, 2, 3]));
+console.log(miroir([9, 8, 7]));
+console.log(miroir([10, 20]));
+
+// function miroir(tab) {
+//     return [...tab, ...tab.splice(0, tab.length - 1).reverse()]
+//   }
+
+// Écrivez une fonction récursive qui trouve la somme des n premiers nombres naturels.
+function somme(n) {
+   if (n === 1) {
+      return 1;
+      // cas base
+   } else {
+      return somme(n - 1) + n;
+      // cas général
+   }
+   /*	Logique :
+    for (let i = 0; i >= n; i--) {
+	    sum = sum + i;
+	}*/
+}
+console.log(somme(3));
+console.log(somme(2));
+console.log(somme(10));
+
+// Créez une fonction pour extraire le nom de la catégorie de son URL.
+function getCategory(url) {
+   return url.split("/")[3];
+}
+console.log(getCategory("https://waytolearnx.com/html/"));
+console.log(getCategory("https://waytolearnx.com/css/"));
+console.log(getCategory("https://waytolearnx.com/javascript/"));
+
+// Écrivez une fonction qui renvoie TRUE si un objet est vide, sinon renvoie FALSE.
+function isObjEmpty(obj) {
+   if (Object.keys(obj).length === 0) {
+      return true;
+   }
+   return false;
+}
+console.log(isObjEmpty({a: 1, b: 2}));
+console.log(isObjEmpty({a: 1}));
+console.log(isObjEmpty({}));
+
+// Écrivez une fonction qui récupère les n derniers éléments d’un tableau.
+function lastNitem(t, n) {
+   // Fin du mot inférieur ou égal à la longueur du tableau t, on coupe la longueur de t par -n (la fin) dans la moyenen de t, ou alors c'est invalide
+   return n <= t.length ? t.slice(t.length - n, t.length) : "null";
+}
+console.log(lastNitem([8, 1, 5, 2, 4, 9], 3));
+console.log(lastNitem([1, 2, 3], 1));
+console.log(lastNitem([1, 2, 3, 4], 10));
+console.log(lastNitem([1, 2, 3, 4], 0));
+
+// Écrivez une fonction qui supprime tous les caractères spéciaux dans une chaîne.
+function removeSpecialChar(str) {
+   // matches a single character in the range between a
+   let regex = str.replace(/[^a-z]/gi, "");
+   return regex;
+}
+console.log(removeSpecialChar("@W*-a?;+y!°T-8o_&L?e!=r%$n<X"));
+console.log(removeSpecialChar(",A@[L]?e*$!x"));
+console.log(removeSpecialChar("$*;H[!e&}l]l@{^.o"));
+
+// Écrivez une fonction qui renvoie TRUE si un nombre est un palindrome.
+function checkPalindrome(n) {
+   // Instance, coupé par lettre, inverser, rejoindre instance(attribut)
+   return String(n).split("").reverse().join("") == String(n);
+}
+
+// function checkPalindrome(n) {
+//     for( let i = n; i > 0; i-- ) {
+//         if ( n[i] = n-1 ) {
+//             return true
+//         } else {
+//             return false
+//         }
+//     }
+// }
+// console.log(checkPalindrome(212));
+// console.log(checkPalindrome(123));
+// console.log(checkPalindrome(75257));
 
 // // Exercice JavaScript Corrigé – Partie 8
+// ...Créez une fonction qui calcule la distance de hamming entre deux chaînes.
+
+
 // // Exercice JavaScript Corrigé – Partie 9
 // // Exercice JavaScript Corrigé – Partie 10
-
-let a = 10;
-let b = 5;
-function multi(a, b) {
-   return a * b;
-}
-multi(a, b);
