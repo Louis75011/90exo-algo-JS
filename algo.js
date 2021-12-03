@@ -659,7 +659,106 @@ function checkPalindrome(n) {
 
 // // Exercice JavaScript Corrigé – Partie 8
 // ...Créez une fonction qui calcule la distance de hamming entre deux chaînes.
+function distanceHamming(str1, str2) {
+   // Itère et filtre sur 1ère string puis compare longueur des mots par rapport à la 2e
+   return [...str1].filter((x, i) => x != str2[i]).length;
+}
 
+// Créez une fonction qui prend un tableau de nombres et renvoie le minimum et le maximum dans un tableau [Min, Max].
+function getMinMax(tab) {
+   return [Math.min(...tab), Math.max(...tab)];
+}
+console.log(getMinMax([8, 1, 9, 2, 6]));
+console.log(getMinMax([22, 2]));
+console.log(getMinMax([5]));
+
+// Créez une fonction qui compte le nombre de majuscules dans une chaîne de caractères.
+function countMaj(str) {
+   // REGEX ou .split
+   return str.replace(/[^A-Z]/g, "").length;
+}
+console.log(countMaj("abcdEFG"));
+console.log(countMaj("WayToLearnX"));
+console.log(countMaj("abcdefghigklmnopkrstvuwxyz"));
+
+// Créez une fonction qui compte le nombre de syllabes d’un mot. Chaque syllabe est séparée par un tiret -.
+function nbrOfSlab(str) {
+   // Décompose la moyenne du mot avec ajout du tiret
+   return str.split("-").length;
+}
+
+// Implémenter une fonction qui renvoie la distance donnée en kilomètres convertie en miles. Vous devez arrondir le résultat jusqu’au quatrième chiffre décimal.
+
+function toMiles(km) {
+   // Mathématiques, conversion en miles "parseFloat" + arrondir "toFixed" à 4
+   return parseFloat((km * 0.621371).toFixed(4));
+}
+console.log(toMiles(5));
+console.log(toMiles(7));
+console.log(toMiles(10));
+
+// Créez une fonction qui prend un nombre (de 1 à 12) et renvoie son nom de mois correspondant sous forme de chaîne.
+function nomDuMois(n) {
+   const month = {
+      1: "Janvier",
+      2: "Février",
+      3: "Mars",
+      4: "Avril",
+      5: "Mai",
+      6: "Juin",
+      7: "Juillet",
+      8: "Août",
+      9: "Septembre",
+      10: "Octobre",
+      11: "Novembre",
+      12: "Décembre",
+   };
+   return month[n];
+}
+console.log(nomDuMois(3));
+console.log(nomDuMois(12));
+console.log(nomDuMois(6));
+
+// Créez une fonction qui renvoie « Majuscule » si toutes les lettres d’un mot sont en majuscules, « Minuscule » si toutes les lettres d’un mot sont en minuscule et « Mix » s’il contient à la fois des majuscules et des minuscules.
+function caseOf(str) {
+   if (str === str.toUpperCase()) {
+      return "Majuscule";
+   } else if (str === str.toLowerCase()) {
+      return "Minuscule";
+   } else {
+      return "Mix";
+   }
+}
+console.log(caseOf("WAYTOLEARNX"));
+console.log(caseOf("waytolearnx"));
+console.log(caseOf("WayToLearnX"));
+
+// Le temps a un format: heures:minutes. Les heures et les minutes ont deux chiffres, comme 07:00. Ecrivez l’expression régulière pour trouver le temps(heures:minutes) dans la chaîne.
+let str = "Le restaurant ouvre à 08:00 situé au boulevard du 200:200";
+// d matches carachter index with case sensitive, /d matches 0-9, {2} matches previous token 2 times
+let expr = /\d{2}\:\d{2}/;
+let result = str.match(expr);
+
+console.log(result.join(""));
+
+// Écrivez une fonction qui prend un nombre binaire de 8 bits sous forme de tableau et convertissez-le en décimal.
+function binToDec(tab) {
+   // parseInt method
+   return parseInt(tab.join(""), 2);
+}
+console.log(binToDec([0, 0, 0, 1, 1, 1, 1, 1]));
+console.log(binToDec([0, 0, 0, 0, 0, 0, 0, 1]));
+console.log(binToDec([1, 0, 0, 0, 0, 0, 0, 0]));
 
 // // Exercice JavaScript Corrigé – Partie 9
+// Écrivez une méthode qui vérifie si une chaîne est un palindrome.
+function isPalindrome(str) {
+
+}
+
+console.log(isPalindrome("NON"));
+console.log(isPalindrome("TOTO"));
+console.log(isPalindrome("SOS"));
+console.log(isPalindrome("SELLES"));
+
 // // Exercice JavaScript Corrigé – Partie 10
