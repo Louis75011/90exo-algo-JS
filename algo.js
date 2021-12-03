@@ -753,12 +753,102 @@ console.log(binToDec([1, 0, 0, 0, 0, 0, 0, 0]));
 // // Exercice JavaScript Corrigé – Partie 9
 // Écrivez une méthode qui vérifie si une chaîne est un palindrome.
 function isPalindrome(str) {
-
+   // Itère sur le string, dans les deux sens, joint en un mot
+   return [...str].reverse().join("") == str;
 }
-
 console.log(isPalindrome("NON"));
 console.log(isPalindrome("TOTO"));
 console.log(isPalindrome("SOS"));
 console.log(isPalindrome("SELLES"));
 
+// Écrivez une fonction qui prend deux nombres et renvoie s’ils doivent être additionnés, soustraits, multipliés ou divisés pour obtenir 8. Si aucune des opérations ne peut donner 8, retournez NULL.
+function operation(n1, n2) {
+   let n3 = 0;
+   if (n1 + n2 === 8) {
+      return '"Il faut additionner les deux nombres :"';
+   } else if (n1 * n2 === 8) {
+      /*return '"Il faut multiplier les deux nombres :"';
+  } else if (n1 - n2 === 8) {*/
+      return '"Il faut soustraire les deux nombres :"';
+   } else if (n1 / n2 === 8) {
+      return '"Il faut diviser les deux nombres :"';
+   } else {
+      return null;
+   }
+}
+console.log(operation(4, 4));
+console.log(operation(10, 2));
+console.log(operation(32, 4));
+console.log(operation(6, 6));
+
+// Vous avez embauché trois commerciales et vous les payez. Créez une fonction qui prend trois nombres (le salaire horaire de chaque commerciale) et renvoie la différence entre le commerciale le mieux payé et le moins payé.
+function getDiff(c1, c2, c3) {
+   // Il suffit d'user des méthodes Math.max&min sur les arguments en paramètre
+   return Math.max(...arguments) - Math.min(...arguments);
+}
+console.log(getDiff(200, 10, 90));
+console.log(getDiff(56, 29, 16));
+console.log(getDiff(2, 10, 5));
+
+// Vous avez un tableau de nombres, créez une fonction qui renvoie le même tableau mais avec l’index de chaque élément dans le tableau ajouté à lui-même...
+function addIndexeToElem(tab) {
+   // Renvoie nouveau tableau prenant leur valeur et leur additionant en plus le chiffre de leur index
+   return tab.map((val, i) => val + i);
+}
+console.log(addIndexeToElem([0, 0, 0, 0]));
+console.log(addIndexeToElem([2, 1, 0, 1]));
+console.log(addIndexeToElem([9, 8, 7, 6]));
+
+// Créez une fonction qui prend une chaîne et renvoie une chaîne avec des espaces entre tous les caractères.
+function addSpace(str) {
+   return str.split("").join(" ");
+   // return [...str].join(' ');
+}
+console.log(addSpace("waytolearnx"));
+console.log(addSpace("Hello BoB"));
+console.log(addSpace("Thank you"));
+
+// ...Créez une fonction qui a le tableau des boissons comme argument et retournez l’objet boissons trié par prix dans l’ordre croissant.
+function sortByPrice(boissons) {
+   // Méthode native de tri, comparer propriété a et b...
+   return boissons.sort((a, b) => a.prix - b.prix);
+}
+// créer le tableau des boissons
+boissons = [
+   {nom: "citron", prix: 50},
+   {nom: "menthe", prix: 35},
+   {nom: "fraise", prix: 5},
+];
+// Afficher la sortie
+console.log(sortByPrice(boissons));
+
+// Créez une fonction qui prend un entier et retourne s’il s’agit d’un nombre uniforme ou non.
+function isUniforme(n) {
+   // Instance, chaîne vide + attribut, strictement 1
+   return new Set("" + n).size === 1;
+}
+console.log(isUniforme(444));
+console.log(isUniforme(-444));
+console.log(isUniforme(0));
+
+// Avec deux chaînes, créez une fonction qui renvoie le nombre total de caractères uniques de la chaîne concaténée.
+function uniqueChr(s1, s2) {
+   // Set & size propriété renvoyant le nombre d'éléments contenus dans un objet
+   return new Set(s1 + s2).size;
+}
+console.log(uniqueChr("attention", "intention"));
+console.log(uniqueChr("plus", "tous"));
+console.log(uniqueChr("bis", "lis"));
+
+// Écrivez une fonction récursive qui trouve la somme d’un tableau.
+function somme(tab) {
+   if (tab.length === 0 || "") return 0;
+   // Sinon renvoie le tableau dans la fonction(attribut)
+   else return tab.pop() + somme(tab);
+}
+console.log(somme([1, 2, 3]));
+console.log(somme([1, 2]));
+console.log(somme([]));
+
 // // Exercice JavaScript Corrigé – Partie 10
+// Créez une fonction qui accepte deux paramètres et, si les deux paramètres sont des chaînes, additionnez-les comme s’ils étaient des entiers ou si les deux paramètres sont des entiers, concaténez-les.
