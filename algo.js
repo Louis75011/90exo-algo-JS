@@ -1,5 +1,7 @@
-// // 100 Exercices d'algorithmique en JavaScript en vrac avec mon propre code
-// // https:waytolearnx.com/category/exercice-javascript-corrige
+// // 100 Exercices d'algorithmiques et de mathématiques utiles pour la création de fonction en JavaScript (en vrac et avec mes résolutions propres)
+// // Site de référence : https:waytolearnx.com/category/exercice-javascript-corrige
+
+//  Début
 
 // Exercice JavaScript Corrigé – Partie 1
 // Créez une fonction qui prend deux nombres comme arguments et retourne leur somme.
@@ -852,3 +854,105 @@ console.log(somme([]));
 
 // // Exercice JavaScript Corrigé – Partie 10
 // Créez une fonction qui accepte deux paramètres et, si les deux paramètres sont des chaînes, additionnez-les comme s’ils étaient des entiers ou si les deux paramètres sont des entiers, concaténez-les.
+function add(a, b) {
+   // Si type différent ne fonctionne pas
+   if (typeof a !== typeof b) return null;
+   // Si chaîne, alors retourne entiers concaténés
+   if (typeof a === "string") return Number(a) + Number(b);
+   return `${a}${b}`;
+}
+console.log(add("2", "3"));
+console.log(add(2, 3));
+console.log(add("2", 3));
+
+// Créez une fonction qui renvoie le produit de tous les entiers impairs dans un tableau.
+function prodImp(tab) {
+   // filtre éléments tableau, modulo de 2 + différent de 0
+   // reduce : accumule cahque valeur puis réduit à une seule
+   return tab.filter((i) => i % 2 !== 0).reduce((a, b) => a * b);
+}
+console.log(prodImp([1, 2, 3, 4]));
+console.log(prodImp([3, 6, 8, 5, 5, 7]));
+console.log(prodImp([1, 0, 1, 0, 1, 0]));
+
+// Créez une fonction qui répète chaque caractère dans une chaîne n fois.
+function repeatChr(str, n) {
+   // repeat() is a string method that is used to repeat a string a specified number of times
+   // Le 1er paramètre se répète le nombre de fois que le 2e paramètre le signifie
+   return str.repeat([n]);
+}
+console.log(repeatChr("alex", 3));
+console.log(repeatChr("waytolearnx", 1));
+console.log(repeatChr("bob", 2));
+
+// Vous avez un tableau avec des mots aléatoires, mais votre programme n’accepte pas les mots commençant par la lettre majuscule « Z ». Supprimez les mots non acceptés et renvoyez le nouveau tableau.
+function filterWords(tab) {
+   // Filtrer, regex, etc.
+   return tab.filter((str) => /^[^Z]/.test(str));
+}
+console.log(filterWords(["Bob", "Alex", "Zoello"]));
+console.log(filterWords(["Lion", "Zebra", "Gazelle"]));
+console.log(filterWords(["Mercedes", "Bmw", "Audi"]));
+
+// Écrivez une fonction qui prend un tableau d’éléments et ne renvoie que les entiers.
+function getInt(tab) {
+   // Méthode est-ce un nombre entier
+   return tab.filter(Number.isInteger);
+   /*return tab.filter(x => x % 2 == 0);*/
+}
+console.log(getInt([1, 2, "3", "4", "5", 6]));
+console.log(getInt(["Vache", 20, "Cheval", 1, "Poule", 50]));
+console.log(getInt(["Str", false, 5.56, 6]));
+
+// Créez une fonction qui convertit deux tableaux de coordonnées x et y en un tableau de coordonnées (x, y).
+function convert(tabX, tabY) {
+   return tabX.map((indexX, indexY) => [indexX, tabY[indexY]]);
+   /*const c = tabX.map((el, index)=> [el, tabY[index]]);*/
+}
+console.log(convert([0, 2, 5], [8, 6, 9]));
+console.log(convert([2, 2], [4, 8]));
+console.log(convert([1], [2]));
+
+// Créez une fonction qui remplace toutes les voyelles d’une chaîne par un caractère spécifié.
+function replaceVoyel(str, c) {
+   // méthode .replace, regex matches voyelles en min/maj : str & c
+   return str.replace(/[aeoiu]/g, c);
+}
+console.log(replaceVoyel("voyelle", "$"));
+console.log(replaceVoyel("boulevard", "?"));
+console.log(replaceVoyel("bouche", "@"));
+
+// Créez une fonction pour calculer le déterminant d’une matrice 2 x 2.
+function det(matrice) {
+   return matrice[0][0] * matrice[1][1] - matrice[1][0] * matrice[0][1];
+}
+console.log(
+   det([
+      [1, 1],
+      [2, 3],
+   ]),
+);
+console.log(
+   det([
+      [6, 4],
+      [2, 3],
+   ]),
+);
+console.log(
+   det([
+      [2, 4],
+      [4, 2],
+   ]),
+);
+
+// Écrivez une fonction qui renvoie l’extension des fichiers.
+function getExtension(files) {
+   // Nouveau tableau itéré, split et recup l'après extension, ajoute en fin de tableau
+   /* return let file = files.split(".").pop();*/
+   return files.map((newFile) => newFile.split(".").pop());
+}
+console.log(getExtension(["file.html", "file.js"]));
+console.log(getExtension(["image.jpg", "image.png", "image.gif"]));
+console.log(getExtension(["file.pdf", "file.txt", "file.docx"]));
+
+// Fin
